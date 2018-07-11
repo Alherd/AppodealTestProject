@@ -21,7 +21,7 @@
         app:layout_constraintLeft_toRightOf="@id/rewarded_video" />
 
     <Button
-        android:id="@+id/show"
+        android:id="@+id/native_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Native"

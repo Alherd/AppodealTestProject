@@ -387,7 +387,9 @@
             android:exported="false"
             android:grantUriPermissions="true" />
 
-        <activity android:name=".RewardedVideoActivity"></activity>
+        <activity android:name=".RewardedVideoActivity" />
+        <activity android:name=".BannerActivity" />
+        <activity android:name=".NativeActivity"></activity>
     </application>
 
 </manifest>

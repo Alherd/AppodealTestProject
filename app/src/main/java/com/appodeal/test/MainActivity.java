@@ -9,8 +9,6 @@ import android.widget.Button;
 import com.appodeal.ads.Appodeal;
 
 public class MainActivity extends AppCompatActivity {
-    private Button bannerButton;
-    private Button nativeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +27,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
+        Button bannerButton = findViewById(R.id.banner);
+        bannerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BannerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button nativeButton = findViewById(R.id.native_button);
+        nativeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NativeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

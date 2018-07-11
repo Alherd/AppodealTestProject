@@ -2,4 +2,6 @@
     <string name="app_name">TestProject</string>
     <string name="load">Load</string>
     <string name="show">Show</string>
+    <string name="native_button">Native</string>
+    <string name="banner_button">Banner</string>
 </resources>
