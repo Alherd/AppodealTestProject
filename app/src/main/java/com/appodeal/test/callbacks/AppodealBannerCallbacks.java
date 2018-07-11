@@ -8,7 +8,7 @@ import com.appodeal.test.utils.Utils;
 public class AppodealBannerCallbacks implements BannerCallbacks {
     private final Activity mActivity;
 
-    AppodealBannerCallbacks(Activity activity) {
+    public AppodealBannerCallbacks(Activity activity) {
         mActivity = activity;
     }
 

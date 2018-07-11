@@ -7,4 +7,7 @@
     <string name="app_key">fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f</string>
     <string name="init_rewarded_video">init rewarded video</string>
     <string name="is_load">is load</string>
+    <string name="init_button">init banner</string>
+    <string name="hide">hide</string>
+    <string name="banner">Banner</string>
 </resources>

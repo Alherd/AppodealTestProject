@@ -9,7 +9,7 @@ import com.appodeal.test.utils.Utils;
 public class AppodealNativeCallbacks implements NativeCallbacks {
     private final Activity mActivity;
 
-    AppodealNativeCallbacks(Activity activity) {
+    public AppodealNativeCallbacks(Activity activity) {
         mActivity = activity;
     }
 
