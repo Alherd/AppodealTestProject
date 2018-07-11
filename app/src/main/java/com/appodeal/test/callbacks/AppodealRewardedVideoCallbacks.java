@@ -1,13 +1,14 @@
-package com.appodeal.test;
+package com.appodeal.test.callbacks;
 
 import android.app.Activity;
 
 import com.appodeal.ads.RewardedVideoCallbacks;
+import com.appodeal.test.utils.Utils;
 
-class AppodealRewardedVideoCallbacks implements RewardedVideoCallbacks {
+public class AppodealRewardedVideoCallbacks implements RewardedVideoCallbacks {
     private final Activity mActivity;
 
-    AppodealRewardedVideoCallbacks(Activity activity) {
+    public AppodealRewardedVideoCallbacks(Activity activity) {
         mActivity = activity;
     }
 

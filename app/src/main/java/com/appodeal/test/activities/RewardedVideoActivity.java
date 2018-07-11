@@ -1,5 +1,6 @@
-package com.appodeal.test;
+package com.appodeal.test.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.appodeal.ads.Appodeal;
+import com.appodeal.test.R;
+import com.appodeal.test.callbacks.AppodealRewardedVideoCallbacks;
 
 public class RewardedVideoActivity extends AppCompatActivity {
 
@@ -39,12 +42,24 @@ public class RewardedVideoActivity extends AppCompatActivity {
                 isRewardedVideoLoadedButton(v);
             }
         });
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        //       Appodeal.onResume(this, Appodeal.BANNER);
+        Button toNativeButton = findViewById(R.id.to_native_right);
+        toNativeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RewardedVideoActivity.this, NativeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button toBannerButton = findViewById(R.id.to_banner_left);
+        toBannerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RewardedVideoActivity.this, BannerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void isRewardedVideoLoadedButton(View v) {

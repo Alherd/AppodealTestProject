@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -387,9 +387,9 @@
             android:exported="false"
             android:grantUriPermissions="true" />
 
-        <activity android:name=".RewardedVideoActivity" />
-        <activity android:name=".BannerActivity" />
-        <activity android:name=".NativeActivity"></activity>
+        <activity android:name=".activities.RewardedVideoActivity" />
+        <activity android:name=".activities.BannerActivity" />
+        <activity android:name=".activities.NativeActivity"></activity>
     </application>
 
 </manifest>

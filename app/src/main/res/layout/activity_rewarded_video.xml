@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.appodeal.test.MainActivity">
+    tools:context="com.appodeal.test.activities.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/to2"
+        android:id="@+id/to_native_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/native_button"
@@ -55,7 +55,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
-        android:id="@+id/to1"
+        android:id="@+id/to_banner_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/banner_button"

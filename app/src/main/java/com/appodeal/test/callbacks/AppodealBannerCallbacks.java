@@ -1,10 +1,11 @@
-package com.appodeal.test;
+package com.appodeal.test.callbacks;
 
 import android.app.Activity;
 
 import com.appodeal.ads.BannerCallbacks;
+import com.appodeal.test.utils.Utils;
 
-class AppodealBannerCallbacks implements BannerCallbacks {
+public class AppodealBannerCallbacks implements BannerCallbacks {
     private final Activity mActivity;
 
     AppodealBannerCallbacks(Activity activity) {

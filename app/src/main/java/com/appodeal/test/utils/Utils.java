@@ -1,4 +1,4 @@
-package com.appodeal.test;
+package com.appodeal.test.utils;
 
 import android.app.Activity;
 import android.util.Log;

@@ -1,9 +1,10 @@
-package com.appodeal.test;
+package com.appodeal.test.callbacks;
 
 import android.app.Activity;
 
 import com.appodeal.ads.NativeAd;
 import com.appodeal.ads.NativeCallbacks;
+import com.appodeal.test.utils.Utils;
 
 public class AppodealNativeCallbacks implements NativeCallbacks {
     private final Activity mActivity;
