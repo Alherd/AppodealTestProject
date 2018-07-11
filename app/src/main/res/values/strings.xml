@@ -10,4 +10,5 @@
     <string name="init_button">init banner</string>
     <string name="hide">hide</string>
     <string name="banner">Banner</string>
+    <string name="init_native">init native</string>
 </resources>

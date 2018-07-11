@@ -10,7 +10,7 @@ import com.appodeal.ads.Appodeal;
 import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealBannerCallbacks;
 
-public class BannerActivity extends AppCompatActivity {
+public class AppodealBannerActivity extends AppCompatActivity {
     private String APP_KEY;
 
     @Override
@@ -32,9 +32,9 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Appodeal.isLoaded(Appodeal.BANNER)) {
-                    Toast.makeText(BannerActivity.this, "true", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AppodealBannerActivity.this, "true", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(BannerActivity.this, "false", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AppodealBannerActivity.this, "false", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -51,7 +51,7 @@ public class BannerActivity extends AppCompatActivity {
         hideBannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Appodeal.hide(BannerActivity.this, Appodeal.BANNER);
+                Appodeal.hide(AppodealBannerActivity.this, Appodeal.BANNER);
             }
         });
     }
@@ -59,7 +59,7 @@ public class BannerActivity extends AppCompatActivity {
     private void initBannerSdkButton(View v) {
         Appodeal.setBannerViewId(R.id.appodealBannerView);
         Appodeal.initialize(this, APP_KEY, Appodeal.BANNER);
-        Appodeal.setBannerCallbacks(new AppodealBannerCallbacks(BannerActivity.this));
+        Appodeal.setBannerCallbacks(new AppodealBannerCallbacks(AppodealBannerActivity.this));
     }
 
     public void bannerShowButton(View v) {

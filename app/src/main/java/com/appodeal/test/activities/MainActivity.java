@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         rewardedVideoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RewardedVideoActivity.class);
+                Intent intent = new Intent(MainActivity.this, AppodealRewardedVideoActivity.class);
                 startActivity(intent);
             }
         });
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         bannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BannerActivity.class);
+                Intent intent = new Intent(MainActivity.this, AppodealBannerActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         nativeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NativeActivity.class);
+                Intent intent = new Intent(MainActivity.this, AppodealNativeActivity.class);
                 startActivity(intent);
             }
         });

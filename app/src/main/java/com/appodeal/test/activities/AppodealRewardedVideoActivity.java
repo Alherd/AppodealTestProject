@@ -11,7 +11,7 @@ import com.appodeal.ads.Appodeal;
 import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealRewardedVideoCallbacks;
 
-public class RewardedVideoActivity extends AppCompatActivity {
+public class AppodealRewardedVideoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class RewardedVideoActivity extends AppCompatActivity {
         showButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isShown = Appodeal.show(RewardedVideoActivity.this, Appodeal.REWARDED_VIDEO);
-                Toast.makeText(RewardedVideoActivity.this, String.valueOf(isShown), Toast.LENGTH_SHORT).show();
+                boolean isShown = Appodeal.show(AppodealRewardedVideoActivity.this, Appodeal.REWARDED_VIDEO);
+                Toast.makeText(AppodealRewardedVideoActivity.this, String.valueOf(isShown), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -31,7 +31,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
         initButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Appodeal.setRewardedVideoCallbacks(new AppodealRewardedVideoCallbacks(RewardedVideoActivity.this));
+                Appodeal.setRewardedVideoCallbacks(new AppodealRewardedVideoCallbacks(AppodealRewardedVideoActivity.this));
             }
         });
 
@@ -47,7 +47,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
         toNativeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RewardedVideoActivity.this, NativeActivity.class);
+                Intent intent = new Intent(AppodealRewardedVideoActivity.this, AppodealNativeActivity.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
         toBannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RewardedVideoActivity.this, BannerActivity.class);
+                Intent intent = new Intent(AppodealRewardedVideoActivity.this, AppodealBannerActivity.class);
                 startActivity(intent);
             }
         });
