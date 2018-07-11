@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Appodeal.disableLocationPermissionCheck();
-        String APP_KEY = "fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f";
+        String APP_KEY = getString(R.string.app_key);
         Appodeal.initialize(this, APP_KEY, Appodeal.REWARDED_VIDEO | Appodeal.BANNER | Appodeal.NATIVE);
 
         Button rewardedVideoButton = findViewById(R.id.rewarded_video);

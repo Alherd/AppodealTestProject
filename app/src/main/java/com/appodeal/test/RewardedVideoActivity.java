@@ -9,15 +9,14 @@ import android.widget.Toast;
 import com.appodeal.ads.Appodeal;
 
 public class RewardedVideoActivity extends AppCompatActivity {
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video);
 
-        button = findViewById(R.id.show);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button showButton = findViewById(R.id.show);
+        showButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isShown = Appodeal.show(RewardedVideoActivity.this, Appodeal.REWARDED_VIDEO);
@@ -25,11 +24,19 @@ public class RewardedVideoActivity extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.load);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button initButton = findViewById(R.id.init);
+        initButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Appodeal.setRewardedVideoCallbacks(new AppodealRewardedVideoCallbacks(RewardedVideoActivity.this));
+            }
+        });
+
+        Button isLoadButton = findViewById(R.id.is_load);
+        isLoadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isRewardedVideoLoadedButton(v);
             }
         });
     }
@@ -38,5 +45,13 @@ public class RewardedVideoActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         //       Appodeal.onResume(this, Appodeal.BANNER);
+    }
+
+    public void isRewardedVideoLoadedButton(View v) {
+        if (Appodeal.isLoaded(Appodeal.REWARDED_VIDEO)) {
+            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
+        }
     }
 }

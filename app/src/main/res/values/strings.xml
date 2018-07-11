@@ -4,4 +4,7 @@
     <string name="show">Show</string>
     <string name="native_button">Native</string>
     <string name="banner_button">Banner</string>
+    <string name="app_key">fee50c333ff3825fd6ad6d38cff78154de3025546d47a84f</string>
+    <string name="init_rewarded_video">init rewarded video</string>
+    <string name="is_load">is load</string>
 </resources>
