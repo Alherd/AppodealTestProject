@@ -17,6 +17,8 @@ public class RewardedVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rewarded_video);
+        Appodeal.disableLocationPermissionCheck();
+        Appodeal.initialize(this, getString(R.string.app_key), Appodeal.REWARDED_VIDEO);
 
         Button showButton = findViewById(R.id.show);
         showButton.setOnClickListener(new View.OnClickListener() {
