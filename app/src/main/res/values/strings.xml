@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestProject</string>
+    <string name="app_name">Appodeal Test</string>
     <string name="load">Load</string>
     <string name="show">Show</string>
     <string name="native_button">Native</string>
@@ -11,16 +11,6 @@
     <string name="hide">hide</string>
     <string name="banner">Banner</string>
     <string name="init_native">init native</string>
-    <string name="sdkTextView">SDK v%s</string>
-    <string name="disableNetworksButton">Disable</string>
-    <string name="testModeSwitch">Test Mode</string>
-    <string name="loggingSwitch">Logging</string>
-    <string name="toastSwitch">Show toasts</string>
-    <string name="initSdkButton">Init SDK</string>
-    <string name="chooseNetworks">Choose networks</string>
-    <string name="logLevelTextView">Log level</string>
-
-
     <string name="templateNativeTextView">Template</string>
     <string name="typeNativeTextView">Type</string>
     <string name="nativeAdMessage">Ad</string>
