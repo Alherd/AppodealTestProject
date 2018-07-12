@@ -29,7 +29,7 @@ import com.appodeal.test.utils.Utils;
 
 public class NativeActivity extends AppCompatActivity {
     private String APP_KEY;
-    LinearLayout nativeAdsListView;
+    private LinearLayout nativeAdsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +66,47 @@ public class NativeActivity extends AppCompatActivity {
         });
 
         nativeAdsListView = findViewById(R.id.nativeAdsListView);
+
+        final Button nativeInitButton = findViewById(R.id.initNativeSdkButton);
+        nativeInitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initNativeSdkButton(v);
+            }
+        });
+
+        final Button isNativeLoadedButton = findViewById(R.id.isNativeLoadedButton);
+        isNativeLoadedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isNativeLoadedButton(v);
+            }
+        });
+
+        final Button nativeShowButton = findViewById(R.id.nativeShowContainerButton);
+        nativeShowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nativeShowButton(v);
+            }
+        });
+        final Button nativeHideButton = findViewById(R.id.nativeHideButton);
+        nativeHideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nativeHideButton(v);
+            }
+        });
     }
 
-    public void initNativeSdkButton(View v) {
+    private void initNativeSdkButton(View v) {
         Appodeal.setNativeCallbacks(new AppodealNativeCallbacks(this));
         Appodeal.initialize(this, APP_KEY, Appodeal.NATIVE);
         Appodeal.setAutoCacheNativeIcons(true);
         Appodeal.setAutoCacheNativeMedia(true);
     }
 
-    public void isNativeLoadedButton(View v) {
+    private void isNativeLoadedButton(View v) {
         if (Appodeal.isLoaded(Appodeal.NATIVE)) {
             Utils.showToast(this, "true");
         } else {
@@ -83,7 +114,7 @@ public class NativeActivity extends AppCompatActivity {
         }
     }
 
-    public void nativeShowButton(View v) {
+    private void nativeShowButton(View v) {
         NativeAd nativeAds = Appodeal.getNativeAds(1).get(0);
 
         Spinner nativeTemplateSpinner = findViewById(R.id.native_template_list);
@@ -92,11 +123,11 @@ public class NativeActivity extends AppCompatActivity {
 
     }
 
-    public void nativeHideButton(View v) {
+    private void nativeHideButton(View v) {
         hideNativeAds();
     }
 
-    public void hideNativeAds() {
+    private void hideNativeAds() {
         nativeAdsListView.removeAllViews();
 
     }
@@ -166,13 +197,13 @@ public class NativeActivity extends AppCompatActivity {
         return convertView;
     }
 
-    public void rebuild(NativeAd nativeAd, int mType) {
+    private void rebuild(NativeAd nativeAd, int mType) {
         nativeAdsListView.removeAllViews();
         nativeAdsListView.addView(getView(nativeAd, mType));
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
         Appodeal.onResume(this, Appodeal.NATIVE);
     }

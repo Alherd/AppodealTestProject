@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:onClick="initNativeSdkButton"
         android:text="@string/init_native" />
 
     <LinearLayout
@@ -35,7 +34,6 @@
             android:id="@+id/isNativeLoadedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="isNativeLoadedButton"
             android:text="@string/is_load" />
     </LinearLayout>
 
@@ -51,14 +49,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:onClick="nativeShowButton"
             android:text="@string/nativeShowButton" />
 
         <Button
             android:id="@+id/nativeHideButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="nativeHideButton"
             android:text="@string/hide" />
     </LinearLayout>
 

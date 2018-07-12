@@ -44,24 +44,6 @@ public class RewardedVideoActivity extends AppCompatActivity {
                 isRewardedVideoLoadedButton(v);
             }
         });
-
-        Button toNativeButton = findViewById(R.id.to_native_right);
-        toNativeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RewardedVideoActivity.this, NativeActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button toBannerButton = findViewById(R.id.to_banner_left);
-        toBannerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RewardedVideoActivity.this, BannerActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     public void isRewardedVideoLoadedButton(View v) {
