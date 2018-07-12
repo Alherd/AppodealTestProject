@@ -9,8 +9,9 @@ import android.widget.Toast;
 import com.appodeal.ads.Appodeal;
 import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealBannerCallbacks;
+import com.appodeal.test.utils.Utils;
 
-public class AppodealBannerActivity extends AppCompatActivity {
+public class BannerActivity extends AppCompatActivity {
     private String APP_KEY;
 
     @Override
@@ -32,9 +33,9 @@ public class AppodealBannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (Appodeal.isLoaded(Appodeal.BANNER)) {
-                    Toast.makeText(AppodealBannerActivity.this, "true", Toast.LENGTH_SHORT).show();
+                    Utils.showToast(BannerActivity.this, "true");
                 } else {
-                    Toast.makeText(AppodealBannerActivity.this, "false", Toast.LENGTH_SHORT).show();
+                    Utils.showToast(BannerActivity.this, "false");
                 }
             }
         });
@@ -51,7 +52,7 @@ public class AppodealBannerActivity extends AppCompatActivity {
         hideBannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Appodeal.hide(AppodealBannerActivity.this, Appodeal.BANNER);
+                Appodeal.hide(BannerActivity.this, Appodeal.BANNER);
             }
         });
     }
@@ -59,12 +60,12 @@ public class AppodealBannerActivity extends AppCompatActivity {
     private void initBannerSdkButton(View v) {
         Appodeal.setBannerViewId(R.id.appodealBannerView);
         Appodeal.initialize(this, APP_KEY, Appodeal.BANNER);
-        Appodeal.setBannerCallbacks(new AppodealBannerCallbacks(AppodealBannerActivity.this));
+        Appodeal.setBannerCallbacks(new AppodealBannerCallbacks(BannerActivity.this));
     }
 
     public void bannerShowButton(View v) {
         boolean isShown = Appodeal.show(this, Appodeal.BANNER_TOP);
-        Toast.makeText(this, String.valueOf(isShown), Toast.LENGTH_SHORT).show();
+        Utils.showToast(this, String.valueOf(isShown));
     }
 
     @Override

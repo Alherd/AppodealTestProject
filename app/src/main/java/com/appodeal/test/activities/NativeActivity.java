@@ -25,8 +25,9 @@ import com.appodeal.ads.native_ad.views.NativeAdViewContentStream;
 import com.appodeal.ads.native_ad.views.NativeAdViewNewsFeed;
 import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealNativeCallbacks;
+import com.appodeal.test.utils.Utils;
 
-public class AppodealNativeActivity extends AppCompatActivity {
+public class NativeActivity extends AppCompatActivity {
     private String APP_KEY;
     LinearLayout nativeAdsListView;
 
@@ -36,11 +37,11 @@ public class AppodealNativeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_native);
         APP_KEY = getString(R.string.app_key);
         Spinner nativeTemplateSpinner = findViewById(R.id.native_template_list);
-        ArrayAdapter<String> nativeTemplateAdapter = new ArrayAdapter<>(AppodealNativeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.nativeTemplates));
+        ArrayAdapter<String> nativeTemplateAdapter = new ArrayAdapter<>(NativeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.nativeTemplates));
         nativeTemplateSpinner.setAdapter(nativeTemplateAdapter);
 
         Spinner nativeTypeSpinner = findViewById(R.id.native_type_list);
-        ArrayAdapter<String> nativeTypeAdapter = new ArrayAdapter<>(AppodealNativeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.nativeTypes));
+        ArrayAdapter<String> nativeTypeAdapter = new ArrayAdapter<>(NativeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.nativeTypes));
         nativeTypeSpinner.setAdapter(nativeTypeAdapter);
         nativeTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -67,7 +68,6 @@ public class AppodealNativeActivity extends AppCompatActivity {
         nativeAdsListView = findViewById(R.id.nativeAdsListView);
     }
 
-
     public void initNativeSdkButton(View v) {
         Appodeal.setNativeCallbacks(new AppodealNativeCallbacks(this));
         Appodeal.initialize(this, APP_KEY, Appodeal.NATIVE);
@@ -77,9 +77,9 @@ public class AppodealNativeActivity extends AppCompatActivity {
 
     public void isNativeLoadedButton(View v) {
         if (Appodeal.isLoaded(Appodeal.NATIVE)) {
-            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
+            Utils.showToast(this, "true");
         } else {
-            Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
+            Utils.showToast(this, "false");
         }
     }
 
@@ -168,9 +168,12 @@ public class AppodealNativeActivity extends AppCompatActivity {
 
     public void rebuild(NativeAd nativeAd, int mType) {
         nativeAdsListView.removeAllViews();
-        nativeAdsListView
-                .addView(
-                        getView(nativeAd, mType));
+        nativeAdsListView.addView(getView(nativeAd, mType));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Appodeal.onResume(this, Appodeal.NATIVE);
+    }
 }

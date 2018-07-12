@@ -391,9 +391,9 @@
             android:exported="false"
             android:grantUriPermissions="true" />
 
-        <activity android:name=".activities.AppodealRewardedVideoActivity" />
-        <activity android:name=".activities.AppodealBannerActivity" />
-        <activity android:name=".activities.AppodealNativeActivity"></activity>
+        <activity android:name=".activities.RewardedVideoActivity" />
+        <activity android:name=".activities.BannerActivity" />
+        <activity android:name=".activities.NativeActivity"></activity>
     </application>
 
 </manifest>
