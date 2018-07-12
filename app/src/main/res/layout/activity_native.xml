@@ -33,11 +33,6 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <com.appodeal.test.HorizontalNumberPicker
-            android:id="@+id/nativeAdsCountPicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical" />
 
         <Button
             android:id="@+id/nativeShowContainerButton"

@@ -63,8 +63,6 @@ public class AppodealBannerActivity extends AppCompatActivity {
     }
 
     public void bannerShowButton(View v) {
-//        Spinner bannerPositionSpinner = findViewById(R.id.bannerPositionList);
-//        BannerPosition bannerPosition = (BannerPosition) bannerPositionSpinner.getSelectedItem();
         boolean isShown = Appodeal.show(this, Appodeal.BANNER_TOP);
         Toast.makeText(this, String.valueOf(isShown), Toast.LENGTH_SHORT).show();
     }
