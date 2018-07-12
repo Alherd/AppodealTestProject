@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appodeal.ads.Appodeal;
 import com.appodeal.ads.Native;
@@ -27,7 +26,7 @@ import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealNativeCallbacks;
 import com.appodeal.test.utils.Utils;
 
-public class NativeActivity extends AppCompatActivity {
+public final class NativeActivity extends AppCompatActivity {
     private String APP_KEY;
     private LinearLayout nativeAdsListView;
 

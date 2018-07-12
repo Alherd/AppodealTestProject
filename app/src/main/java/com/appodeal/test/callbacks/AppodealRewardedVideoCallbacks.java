@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.appodeal.ads.RewardedVideoCallbacks;
 import com.appodeal.test.utils.Utils;
 
-public class AppodealRewardedVideoCallbacks implements RewardedVideoCallbacks {
+public final class AppodealRewardedVideoCallbacks implements RewardedVideoCallbacks {
     private final Activity mActivity;
 
     public AppodealRewardedVideoCallbacks(Activity activity) {

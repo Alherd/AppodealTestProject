@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.appodeal.ads.Appodeal;
 import com.appodeal.test.R;
 
-public class MainActivity extends AppCompatActivity {
+public final class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

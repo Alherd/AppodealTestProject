@@ -6,7 +6,7 @@ import com.appodeal.ads.NativeAd;
 import com.appodeal.ads.NativeCallbacks;
 import com.appodeal.test.utils.Utils;
 
-public class AppodealNativeCallbacks implements NativeCallbacks {
+public final class AppodealNativeCallbacks implements NativeCallbacks {
     private final Activity mActivity;
 
     public AppodealNativeCallbacks(Activity activity) {

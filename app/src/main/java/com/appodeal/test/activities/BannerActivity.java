@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.appodeal.ads.Appodeal;
 import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealBannerCallbacks;
 import com.appodeal.test.utils.Utils;
 
-public class BannerActivity extends AppCompatActivity {
+public final class BannerActivity extends AppCompatActivity {
     private String APP_KEY;
 
     @Override

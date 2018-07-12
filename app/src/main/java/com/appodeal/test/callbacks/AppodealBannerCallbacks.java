@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.appodeal.ads.BannerCallbacks;
 import com.appodeal.test.utils.Utils;
 
-public class AppodealBannerCallbacks implements BannerCallbacks {
+public final class AppodealBannerCallbacks implements BannerCallbacks {
     private final Activity mActivity;
 
     public AppodealBannerCallbacks(Activity activity) {
