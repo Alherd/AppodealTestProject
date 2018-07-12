@@ -1,77 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nativeLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.appodeal.test.activities.AppodealNativeActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/native_button"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/is_load_native"
+        android:id="@+id/initNativeSdkButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/is_load"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="initNativeSdkButton"
+        android:text="@string/initNativeSdkButton" />
 
-    <Button
-        android:id="@+id/init_native"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
-        android:text="@string/init_native"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/show_native"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/show"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/isNativeLoadedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="isNativeLoadedButton"
+            android:text="@string/is_load" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/hide_native"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hide"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.appodeal.test.HorizontalNumberPicker
+            android:id="@+id/nativeAdsCountPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:id="@+id/nativeShowContainerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="nativeShowButton"
+            android:text="@string/nativeShowButton" />
+
+        <Button
+            android:id="@+id/nativeHideButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="nativeHideButton"
+            android:text="@string/nativeHideButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/templateNativeTextView" />
+
+        <Spinner
+            android:id="@+id/native_template_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/typeNativeTextView" />
+
+        <Spinner
+            android:id="@+id/native_type_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/nativeAdsListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" />
-
-    <Button
-        android:id="@+id/to_native_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/native_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/to_banner_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/banner_button"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

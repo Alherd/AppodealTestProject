@@ -1,17 +1,26 @@
 package com.appodeal.test.activities;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.Native;
 import com.appodeal.ads.NativeAd;
+import com.appodeal.test.HorizontalNumberPicker;
+import com.appodeal.test.NativeListAdapter;
 import com.appodeal.test.R;
 import com.appodeal.test.callbacks.AppodealNativeCallbacks;
+import com.appodeal.test.utils.Utils;
 
 import java.util.List;
 
@@ -23,33 +32,36 @@ public class AppodealNativeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native);
         APP_KEY = getString(R.string.app_key);
+        Spinner nativeTemplateSpinner = findViewById(R.id.native_template_list);
+        ArrayAdapter<String> nativeTemplateAdapter = new ArrayAdapter<>(AppodealNativeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.nativeTemplates));
+        nativeTemplateSpinner.setAdapter(nativeTemplateAdapter);
 
-        final Button initNativeButton = findViewById(R.id.init_native);
-        initNativeButton.setOnClickListener(new View.OnClickListener() {
+        Spinner nativeTypeSpinner = findViewById(R.id.native_type_list);
+        ArrayAdapter<String> nativeTypeAdapter = new ArrayAdapter<>(AppodealNativeActivity.this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.nativeTypes));
+        nativeTypeSpinner.setAdapter(nativeTypeAdapter);
+        nativeTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                initNativeSdkButton(v);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Appodeal.setNativeAdType(Native.NativeAdType.Auto);
+                        break;
+                    case 1:
+                        Appodeal.setNativeAdType(Native.NativeAdType.NoVideo);
+                        break;
+                    case 2:
+                        Appodeal.setNativeAdType(Native.NativeAdType.Video);
+                        break;
+                }
             }
-        });
 
-        final Button isLoadNativeButton = findViewById(R.id.is_load_native);
-        isLoadNativeButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                isNativeLoadedButton(v);
-            }
-        });
+            public void onNothingSelected(AdapterView<?> parent) {
 
-        Button showNativeButton = findViewById(R.id.show_native);
-        showNativeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                List<NativeAd> nativeAds = Appodeal.getNativeAds(1);
-//                LinearLayout nativeAdsListView = findViewById(R.id.nativeAdsListView);
-//                nativeAdsListView.setTag(nativeAds.get(0));
             }
         });
     }
+
 
     public void initNativeSdkButton(View v) {
         Appodeal.setNativeCallbacks(new AppodealNativeCallbacks(this));
@@ -65,4 +77,37 @@ public class AppodealNativeActivity extends AppCompatActivity {
             Toast.makeText(this, "false", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void nativeShowButton(View v) {
+        hideNativeAds();
+        HorizontalNumberPicker numberPicker = findViewById(R.id.nativeAdsCountPicker);
+        List<NativeAd> nativeAds = Appodeal.getNativeAds(numberPicker.getNumber());
+
+        LinearLayout nativeAdsListView = findViewById(R.id.nativeAdsListView);
+        Spinner nativeTemplateSpinner = findViewById(R.id.native_template_list);
+        NativeListAdapter nativeListViewAdapter = new NativeListAdapter(nativeAdsListView, nativeTemplateSpinner.getSelectedItemPosition());
+        for (NativeAd nativeAd : nativeAds) {
+            nativeListViewAdapter.addNativeAd(nativeAd);
+        }
+        nativeAdsListView.setTag(nativeListViewAdapter);
+        nativeListViewAdapter.rebuild();
+    }
+
+    public void nativeHideButton(View v) {
+        hideNativeAds();
+    }
+
+    public void hideNativeAds() {
+        LinearLayout nativeListView = findViewById(R.id.nativeAdsListView);
+        nativeListView.removeAllViews();
+        NativeListAdapter nativeListViewAdapter = (NativeListAdapter) nativeListView.getTag();
+        if (nativeListViewAdapter != null) {
+            for (int i = 0; i < nativeListViewAdapter.getCount(); i++) {
+                NativeAd nativeAd = (NativeAd) nativeListViewAdapter.getItem(i);
+                nativeAd.unregisterViewForInteraction();
+            }
+            nativeListViewAdapter.clear();
+        }
+    }
+
 }
