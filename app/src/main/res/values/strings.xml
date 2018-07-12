@@ -15,6 +15,7 @@
     <string name="typeNativeTextView">Type</string>
     <string name="nativeAdMessage">Ad</string>
     <string name="nativeShowButton">Show</string>
+    <string name="not_loaded_message">Not loaded</string>
 
     <string-array name="nativeTemplates">
         <item>Custom</item>

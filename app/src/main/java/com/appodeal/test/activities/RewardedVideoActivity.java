@@ -40,12 +40,12 @@ public final class RewardedVideoActivity extends AppCompatActivity {
         isLoadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isRewardedVideoLoadedButton(v);
+                isRewardedVideoLoadedButton();
             }
         });
     }
 
-    public void isRewardedVideoLoadedButton(View v) {
+    private void isRewardedVideoLoadedButton() {
         if (Appodeal.isLoaded(Appodeal.REWARDED_VIDEO)) {
             Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
         } else {

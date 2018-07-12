@@ -23,7 +23,7 @@ public final class BannerActivity extends AppCompatActivity {
         initBannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initBannerSdkButton(v);
+                initBannerSdkButton();
             }
         });
 
@@ -43,7 +43,7 @@ public final class BannerActivity extends AppCompatActivity {
         showBannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bannerShowButton(v);
+                bannerShowButton();
             }
         });
 
@@ -56,13 +56,13 @@ public final class BannerActivity extends AppCompatActivity {
         });
     }
 
-    private void initBannerSdkButton(View v) {
+    private void initBannerSdkButton() {
         Appodeal.setBannerViewId(R.id.appodealBannerView);
         Appodeal.initialize(this, APP_KEY, Appodeal.BANNER);
         Appodeal.setBannerCallbacks(new AppodealBannerCallbacks(BannerActivity.this));
     }
 
-    public void bannerShowButton(View v) {
+    private void bannerShowButton() {
         boolean isShown = Appodeal.show(this, Appodeal.BANNER_TOP);
         Utils.showToast(this, String.valueOf(isShown));
     }

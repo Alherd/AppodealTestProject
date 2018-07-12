@@ -70,7 +70,7 @@ public final class NativeActivity extends AppCompatActivity {
         nativeInitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                initNativeSdkButton(v);
+                initNativeSdkButton();
             }
         });
 
@@ -78,7 +78,7 @@ public final class NativeActivity extends AppCompatActivity {
         isNativeLoadedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isNativeLoadedButton(v);
+                isNativeLoadedButton();
             }
         });
 
@@ -86,26 +86,26 @@ public final class NativeActivity extends AppCompatActivity {
         nativeShowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nativeShowButton(v);
+                nativeShowButton();
             }
         });
         final Button nativeHideButton = findViewById(R.id.nativeHideButton);
         nativeHideButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nativeHideButton(v);
+                nativeHideButton();
             }
         });
     }
 
-    private void initNativeSdkButton(View v) {
+    private void initNativeSdkButton() {
         Appodeal.setNativeCallbacks(new AppodealNativeCallbacks(this));
         Appodeal.initialize(this, APP_KEY, Appodeal.NATIVE);
         Appodeal.setAutoCacheNativeIcons(true);
         Appodeal.setAutoCacheNativeMedia(true);
     }
 
-    private void isNativeLoadedButton(View v) {
+    private void isNativeLoadedButton() {
         if (Appodeal.isLoaded(Appodeal.NATIVE)) {
             Utils.showToast(this, "true");
         } else {
@@ -113,16 +113,19 @@ public final class NativeActivity extends AppCompatActivity {
         }
     }
 
-    private void nativeShowButton(View v) {
-        NativeAd nativeAds = Appodeal.getNativeAds(1).get(0);
+    private void nativeShowButton() {
+        if (Appodeal.isLoaded(Appodeal.NATIVE)) {
+            NativeAd nativeAds = Appodeal.getNativeAds(1).get(0);
 
-        Spinner nativeTemplateSpinner = findViewById(R.id.native_template_list);
+            Spinner nativeTemplateSpinner = findViewById(R.id.native_template_list);
 
-        rebuild(nativeAds, nativeTemplateSpinner.getSelectedItemPosition());
-
+            rebuild(nativeAds, nativeTemplateSpinner.getSelectedItemPosition());
+        } else {
+            Utils.showToast(this, getString(R.string.not_loaded_message));
+        }
     }
 
-    private void nativeHideButton(View v) {
+    private void nativeHideButton() {
         hideNativeAds();
     }
 
